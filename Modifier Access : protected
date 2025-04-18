@@ -1,0 +1,22 @@
+class AnimalProtected {
+  protected type: string;
+
+  constructor(type: string) {
+    this.type = type; // protected property
+  }
+}
+
+class DogProtected extends AnimalProtected {
+  constructor() {
+    super("Dog");
+  }
+
+  public showType(): void {
+    console.log(`Type is ${this.type}`); // ✅ protected bisa diakses dari subclass
+  }
+}
+
+const protectedDog = new DogProtected();
+protectedDog.showType();            // ✅ OK: method public dalam subclass
+
+// console.log(protectedDog.type);   // ❌ Error: 'type' is protected
