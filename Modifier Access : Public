@@ -1,0 +1,15 @@
+class AnimalPublic {
+  public name: string;
+
+  constructor(name: string) {
+    this.name = name; // public property
+  }
+
+  public introduce(): void {
+    console.log(`I'm ${this.name}`); // public method
+  }
+}
+
+const publicAnimal = new AnimalPublic("Leo");
+console.log(publicAnimal.name);     // ✅ Bisa diakses dari luar
+publicAnimal.introduce();           // ✅ Bisa dipanggil dari luar
