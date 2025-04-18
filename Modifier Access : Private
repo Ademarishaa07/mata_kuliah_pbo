@@ -1,0 +1,21 @@
+class AnimalPrivate {
+  private age: number;
+
+  constructor(age: number) {
+    this.age = age; // private property
+  }
+
+  private showAge(): void {
+    console.log(`Age: ${this.age}`); // private method
+  }
+
+  public revealAge(): void {
+    this.showAge(); // ✅ private method dipanggil dari dalam class
+  }
+}
+
+const privateAnimal = new AnimalPrivate(5);
+privateAnimal.revealAge();           // ✅ OK: lewat method public
+
+// console.log(privateAnimal.age);    // ❌ Error: 'age' is private
+// privateAnimal.showAge();          // ❌ Error: 'showAge' is private
